@@ -88,7 +88,7 @@ add.on("click", () => {
     const role=$("#role").val();
 
 
-    if (logo == "" || title == "" || company == "" || days == "" || location == "" || jobType == "" || languages == "") {
+    if (logo == "" || title == "" || company == "" || days == "" || location == "" || jobType == "" || languages.length == 0 || tools.length ==0  || level == "" || role == "") {
         alert("Please fill all the fields");
         return;
     }
@@ -108,12 +108,24 @@ add.on("click", () => {
         level:level,
         role:role
     };
-    console.log(listing);
     // Add the new listing to the jobData array
     jobData.push(listing);
-
+    console.log(listing);
+;
     // Close the modal and regenerate job listings
     $("#add-job-modal").css("display", "none");
+    $("#imageLink").val("");
+    $("#jobTitle").val("");
+    $("#isNew").prop("checked", false);
+    $("#isFeatured").prop("checked", false);
+    $("#companyName").val("");
+    $("#days").val("");
+    $("#location").val("");
+    $("#jobType").val("");
+    $("#languages").val("");
+    $("#tools").val("");
+    $("#level").val("");
+    $("#role").val("");
     generateJobListings();
 });
 

@@ -268,7 +268,7 @@ h1 {
 .filter-bar {
     background-color: hsl(180, 33%, 95%); /* Desaturated Dark Cyan */
     padding: 10px;
-    display: flex;
+    display: none;
     align-items: center;
     margin-top: -10px;
     width: 70%;
@@ -278,6 +278,7 @@ h1 {
     border-radius: 4px;
     flex-wrap: wrap; /* Allow tags to wrap */
     color: hsl(180, 29%, 50%);
+    position: sticky;
 }
 /* CSS */
 
@@ -306,6 +307,9 @@ h1 {
     margin-bottom: 5px;
     padding: 3px 5px;
     color: hsl(180, 29%, 50%);
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .selected-tag span {
@@ -317,8 +321,8 @@ h1 {
 
 /* Style for remove button in selected tags */
 .remove-tag {
-    background: none;
-    border: none;
+    background-color:hsl(180, 29%, 50%);
+    border: 5px solid hsl(180, 29%, 50%);
     color: hsl(180, 8%, 52%);
     cursor: pointer;
     font-size: 14px;

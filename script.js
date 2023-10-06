@@ -129,6 +129,7 @@ jobList.on("click", "span", function () {
 
 function addTagToSearchBar(tag) {
     var flag = false;
+    $(".filter-bar").css("display","flex");
     const childrens = $(selectedTagsContainer).children().toArray();
     childrens.forEach(child => {
         if (child.id == tag) {
@@ -153,7 +154,7 @@ function addTagToSearchBar(tag) {
         .attr('id', tag)
         .html(`
             <span>${tag}</span>
-            <button onclick="removeTag('${tag}')" class="remove-tag">×</button>
+            <button onclick="removeTag('${tag}')" class="remove-tag"><img src="images/icon-remove.svg"></button>
         `);
 
     // Append the tag to the selected tags container
@@ -173,6 +174,7 @@ function clearTags()
     selectedTagsContainer.html("");
     $("#clear-button").remove();
     filterInput.val("");
+    $(".filter-bar").css("display","none");
     generateJobListings();
 }
 // Function to remove a tag from the search bar
@@ -181,8 +183,10 @@ function removeTag(tag) {
     const filterTags = selectedTagsContainer.children().map(function () {
         return this.id;
     }).get();
-    if(filterTags.length==0)
+    if(filterTags.length==0){
+        $(".filter-bar").css("display","none");
         generateJobListings();
+    }
     else
         generateFilteredJobListings(filterTags);
 }

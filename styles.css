@@ -230,7 +230,24 @@ h1 {
 }
 
 /* Style for the close button (X icon) */
+.clear-button
+{
+    margin-left:auto;
 
+}
+#clear-button
+{
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit  ;
+}
+#clear-button:hover
+{
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+    text-decoration: underline;
+}
 .popup-container
 {
     background-blend-mode: color-dodge;

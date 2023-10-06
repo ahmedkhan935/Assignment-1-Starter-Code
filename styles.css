@@ -1,0 +1,441 @@
+/* styles.css */
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: hsl(180, 29%, 50%);
+    background-image: url(images/bg-header-desktop.svg);
+    background-repeat: no-repeat;
+    height: 100px;
+    padding: 0px;
+    margin:0px;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'League Spartan', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-weight: 700;
+}
+#job-list
+{
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    width: 75%;
+    align-self: center;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    
+
+}
+.job-item {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    margin: 10px;
+    padding: 20px;
+    background-color: hsl(180, 52%, 96%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px; 
+    right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    color: hsl(0, 0%, 0%);
+    border:none;
+    background-color: transparent;
+}
+
+#jobType
+{
+    padding:3px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: hsl(180, 29%, 50%); 
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.job-item img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.job-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+}
+
+.company-info h2 {
+    margin-right: 10px;
+    color: hsl(180, 8%, 52%);
+}
+
+.job-meta {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.job-meta li {
+    margin-right: 10px;
+    font-size: 14px;
+    color: hsl(180, 8%, 52%);
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    color: hsl(180, 29%, 50%);
+}
+
+.job-tags span {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+    font-size: 12px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.new,
+.featured {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.new {
+    background-color: hsl(180, 29%, 50%);
+    color: white;
+}
+
+.featured {
+    background-color: hsl(180, 14%, 20%);
+    color: white;
+}
+.new,.featured:hover {
+    background-color: hsl(180, 29%, 50%);
+    color: white;
+    cursor: pointer;
+}
+.job-form
+{
+    width: 25%;
+    height: 100%;
+    margin-top: 10px;
+}
+
+
+
+.job-item:hover {
+    background-color: hsl(180, 52%, 90%);
+    transform: scale(1.02); 
+    border-left: 10px solid hsl(180, 29%, 50%);
+    cursor: pointer;
+}
+
+
+.company-info h2:hover {
+    text-decoration: underline; 
+}
+
+.job-tags span:hover {
+    background-color: hsl(180, 31%, 80%);
+    cursor: pointer; 
+    color: hsl(180, 29%, 50%);
+}
+.new:hover,
+.featured:hover {
+    background-color: hsl(180, 39%, 60%);
+}
+.modal {
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: stretch;
+    display: none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it appears above other content */
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+/* Style for the modal content */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 5px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    overflow: scroll;
+}
+
+/* Style for the close button (X icon) */
+
+.popup-container
+{
+    background-blend-mode: color-dodge;
+    backface-visibility: hidden;
+    border-radius: 3px 3px 3px 3px solid;
+}
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+/* styles.css */
+/* styles.css */
+
+/* Style for the filter bar */
+.filter-bar {
+    background-color: hsl(180, 33%, 95%); /* Desaturated Dark Cyan */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+    width: 70%;
+    height: 30%;
+    margin-left:auto;
+    margin-right: auto;
+    border-radius: 4px;
+    flex-wrap: wrap; /* Allow tags to wrap */
+    color: hsl(180, 29%, 50%);
+}
+/* CSS */
+
+/* Style for selected tags container */
+#selectedTags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    color: hsl(180, 29%, 50%);
+}
+
+/* Style for selected tags */
+/* CSS */
+
+/* Style for the filter bar */
+
+
+/* Style for selected tags */
+.selected-tag {
+    display: flex;
+    align-items: center;
+    background-color: hsl(180, 31%, 95%);
+    border: 1px solid hsl(180, 8%, 52%);
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 3px 5px;
+    color: hsl(180, 29%, 50%);
+}
+
+.selected-tag span {
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 100;
+    color: hsl(180, 29%, 50%);
+}
+
+/* Style for remove button in selected tags */
+.remove-tag {
+    background: none;
+    border: none;
+    color: hsl(180, 8%, 52%);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+/* Style for the filter input */
+#filterInput {
+    flex-grow: 1; /* Allow input to expand and fill available space */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff; /* White background */
+    font-size: 16px;
+}
+
+/* ... (previous CSS rules) */
+
+/* Style for the modal content (form) */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px; /* Rounded borders for the form card */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: scroll;
+}
+.modal-content2
+{
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 5px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    overflow: scroll;
+    background: #fff;
+    padding: 20px;
+    height: 90%;
+    border-radius: 15px; /* Rounded borders for the form card */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: scroll;
+}
+/* Style for form labels */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Style for form input fields */
+input[type="text"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded borders for text inputs */
+    font-size: 14px;
+}
+
+/* Style for the submit button */
+#add {
+    background-color: hsl(180, 29%, 50%); /* Desaturated Dark Cyan */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px; /* Rounded borders for buttons */
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#add:hover {
+    background-color: hsl(180, 39%, 60%);
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius:100px;
+
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+@media (max-width: 600px) {
+    .job-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 95%;
+        margin: 10px;
+        padding: 20px;
+        background-color: hsl(180, 52%, 96%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        position: relative;
+    }
+    .job-tags {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        border-top:black;
+        margin: top 10px;
+        border-top: 1px solid hsl(180, 8%, 52%);
+        color: hsl(180, 29%, 50%);
+    }
+    .job-tags span {
+        display: inline-block;
+        padding: 5px 0px;
+        background-color: hsl(180, 31%, 95%);
+        color: hsl(180, 29%, 50%);
+        font-size: 12px;
+        margin-right: 5px;
+        border-radius: 3px;
+    }
+    body
+    {
+        font-size: 10px;
+    }
+    .job-item img {
+        max-width: 50px;
+        height: auto;
+        margin-bottom: 10px;
+        margin-right: 20px;
+        margin-top:-30px
+    }
+    
+}

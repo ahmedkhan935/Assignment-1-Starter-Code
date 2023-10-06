@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Job Listing Page</title>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+      
+      <div class="filter-bar">
+      
+        <div id="selectedTags"></div>
+      </div>
+      <ul id="job-list">
+        </ul>
+    </main>
+    <button id="add-job-button" class="add-button">+</button>
+    <div id="add-job-modal" class="modal">
+
+      
+      <div id="job-form" class="modal-content2 job-form">
+        <h2>Add Job Listing</h2>
+        
+        <div class="form-row">
+            <label for="imageLink">Image Link:</label>
+            <input type="text" id="imageLink" name="imageLink" required>
+        </div>
+    
+        <div class="form-row">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+        </div>
+    
+        <div class="form-row">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" name="Name" required>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+        <div class="form-row">
+            <label for="isNew">New Job:</label>
+            <input type="checkbox" id="isNew" name="isNew">
+        </div>
+    
+        <div class="form-row">
+            <label for="isFeatured">Featured Job:</label>
+            <input type="checkbox" id="isFeatured" name="isFeatured">
+        </div>
+        </div>
+        <div class="form-row">
+            <label for="days">Days:</label>
+            <input type="text" id="days" name="days">
+        </div>
+    
+        <div class="form-row">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+        </div>
+    
+        <div class="form-row">
+            <label for="jobType">Job Type:</label>
+            <select id="jobType" name="jobType">
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role">
+        </div>
+        <div class="form-row">
+            <label for="level">Level:</label>
+            <input type="text" id="level" name="languages">
+        </div>
+        <div class="form-row">
+            <label for="languages">Languages:</label>
+            <input type="text" id="languages" name="languages" placeholder="Comma separated for more than one">
+        </div>
+    
+        <div class="form-row">
+            <label for="tools">Tools:</label>
+            <input type="text" id="tools" name="tools" placeholder="Comma separated for more than one">
+        </div>
+    
+        <button type="button" id="add">Add Job Listing</button>
+    </div>
+     <span class="close-popup" id="close-add-job-button">&times;</span>
+    </div>
+    <div id="job-details-modal" class="modal">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -14,14 +14,52 @@ async function getJobs() {
 }
 
 const jobList = $("#job-list");
+function sort()
+{
+    for(var i=0;i<jobData.length;i++)
+    {
+        for(var j=i+1;j<jobData.length;j++)
+        {
+            if(jobData[j].new && jobData[j].featured)
+            {
+                var temp=jobData[i];
+                jobData[i]=jobData[j];
+                jobData[j]=temp;
+            }
+            else if(jobData[j].featured)
+            {
+                if(!jobData[i].featured)
+                {
+                    var temp=jobData[i];
+                    jobData[i]=jobData[j];
+                    jobData[j]=temp;
+                }
+            }
+            else if(jobData[j].new)
+            {
+                if(!jobData[i].new && !jobData[i].featured)
+                {
+                    var temp=jobData[i];
+                    jobData[i]=jobData[j];
+                    jobData[j]=temp;
+                }
+            }
+        }
+    }
+}
 
-// Function to generate job listings from JSON data
 async function generateJobListings() {
     if (jobData.length === 0)
         await getJobs();
+    sort();
     $("#job-list").html("");
     jobData.forEach(job => {
         const listItem = $("<li>").addClass("job-item");
+        if(job.featured && job.new)
+        {
+            listItem.addClass("featured-job");
+        }
+
 
         // Create the HTML structure for each job listing
         listItem.html(`
@@ -55,7 +93,15 @@ async function generateJobListings() {
 function deleteJob(index) {
     jobData.splice(index, 1);
     $("#job-list").html("");
-    generateJobListings();
+    const filterTags = selectedTagsContainer.children().map(function () {
+        return this.id;
+    }).get();
+    if(filterTags.length==0){
+        $(".filter-bar").css("display","none");
+        generateJobListings();
+    }
+    else
+        generateFilteredJobListings(filterTags);
 }
 
 // Call the function to generate job listings
@@ -110,9 +156,9 @@ add.on("click", () => {
     };
     // Add the new listing to the jobData array
     jobData.push(listing);
-    console.log(listing);
+  
 ;
-    // Close the modal and regenerate job listings
+   
     $("#add-job-modal").css("display", "none");
     $("#imageLink").val("");
     $("#jobTitle").val("");
@@ -132,7 +178,7 @@ add.on("click", () => {
 const filterInput = $("#filterInput");
 const selectedTagsContainer = $("#selectedTags");
 
-// Listen for clicks on job tags
+
 jobList.on("click", "span", function () {
     const clickedTag = $(this).text();
     addTagToSearchBar(clickedTag);
@@ -154,7 +200,6 @@ function addTagToSearchBar(tag) {
         return;
     
     const clearButton = $("#clear-button");
-    console.log(clearButton.length);
     const html=`<div class="clear-button"><button id="clear-button" onclick="clearTags()">Clear</button></div>`;
     if(clearButton.length==0){
         const filter=$("#filter-bar");
@@ -208,18 +253,26 @@ function generateFilteredJobListings(filterTags) {
     if (jobData.length === 0)
         getJobs().then(() => generateFilteredJobListings(filterTags));
     else {
+        sort();
         const filteredListings = jobData.filter(job => {
             return (
-                filterTags.includes(job.role) ||
-                filterTags.includes(job.level) ||
-                job.languages.some(language => filterTags.includes(language)) ||
-                job.tools.some(tool => filterTags.includes(tool))
-            );
+                filterTags.every(tag=>{
+                return(    
+                    job.role==tag||
+                    job.level==tag||
+                    job.languages.includes(tag)||
+                    job.tools.includes(tag)
+                )})
+            )
         });
 
         $("#job-list").html("");
         filteredListings.forEach(job => {
             const listItem = $("<li>").addClass("job-item");
+            if(job.featured && job.new)
+            {
+                listItem.addClass("featured-job");
+            }
 
             // Create the HTML structure for each job listing
             listItem.html(`
@@ -260,7 +313,7 @@ function showJobDetails(job) {
             <span class="close-popup" onclick="closeJobDetails()">&times;</span>
             <h2>${job.company}</h2>
             <h3>${job.position}</h3>
-            <p>Location: ${job.location}</p>
+            <h3>Location: ${job.location}<h3>
             <p>Description: Lorum ipsemmmmmmmmmm</p>
         </div>
     `;

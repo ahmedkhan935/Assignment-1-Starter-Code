@@ -49,8 +49,6 @@ function sort()
 }
 
 async function generateJobListings() {
-    if (jobData.length === 0)
-        await getJobs();
     sort();
     $("#job-list").html("");
     jobData.forEach(job => {
@@ -250,9 +248,8 @@ function removeTag(tag) {
 
 // Function to generate filtered job listings
 function generateFilteredJobListings(filterTags) {
-    if (jobData.length === 0)
-        getJobs().then(() => generateFilteredJobListings(filterTags));
-    else {
+
+
         sort();
         const filteredListings = jobData.filter(job => {
             return (
@@ -302,7 +299,7 @@ function generateFilteredJobListings(filterTags) {
             jobList.append(listItem);
         });
     }
-}
+
 // Function to show job details in a popup when a job title is clicked
 function showJobDetails(job) {
     const jobDetailsModal = $("#job-details-modal");

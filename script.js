@@ -11,6 +11,7 @@ async function getJobs() {
         
         jobData = data;
     });
+    //generateJobListings();
 }
 
 const jobList = $("#job-list");
@@ -335,5 +336,8 @@ jobList.on("click", "h3", function () {
     const job = jobData[jobIndex];
     showJobDetails(job);
 });
-
+//document .ready
+$(document).ready(async function(){
+await getJobs();
 generateJobListings();
+});

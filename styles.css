@@ -193,7 +193,10 @@ h1 {
 {
     border-left: 10px solid hsl(180, 29%, 50%);
 }
-
+.featured-job:hover
+{
+    border-left: 10px solid hsl(180, 29%, 50%);
+}
 
 .company-info h2:hover {
     text-decoration: underline; 

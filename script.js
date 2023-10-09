@@ -331,7 +331,7 @@ function closeJobDetails() {
 }
 
 // Attach a click event handler to job titles
-jobList.on("click", "h3", function () {
+jobList.on("click", "li", function () {
     const jobIndex = $(this).closest("li").index();
     const job = jobData[jobIndex];
     showJobDetails(job);
